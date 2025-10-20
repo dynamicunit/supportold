@@ -63,7 +63,7 @@
     <main class="content">
         <!-- Header Row -->
         <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
-            <h1 class="mb-0">Dashboard</h1>
+            <h1 class="mb-0">Profile</h1>
 
             <!-- Breadcrumb -->
             <nav aria-label="breadcrumb">
@@ -76,12 +76,10 @@
 
         <div class="row">
 
-            <h1 class="text-center">Account Details</h1>
-
             <?= $view->page_messages() ?>
             <?= $view->page_messages($validation_errors) ?>
 
-            <div class="col-md-6 offset-md-3 border rounded p-4 bg-white mt-3">
+            <div class="col-md-6 border rounded p-4 bg-white mt-3">
 
                 <form action="<?= $canonical ?>" id="user-form" method="post" enctype="multipart/form-data" novalidate>
                     <div id="userimg" class="form-group">
@@ -90,7 +88,7 @@
                             accept="image/*">
                         <div id="image-error" class="error-message"></div>
                         <div id="image-preview" class="image-preview">
-                            <img id="preview-img" alt="Image Preview" class="preview-img"
+                            <img id="preview-img" alt="Image Preview" class="preview-img rounded-circle w-25 h-25"
                                 src="<?= $data['profile_image'] ?? '' ?>">
                             <span id="remove-image" class="remove-image text-danger">× Remove
                                 Image</span>

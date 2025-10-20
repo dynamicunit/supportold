@@ -60,7 +60,7 @@ class listings
     public function fetchbyarray(string $logical_table_name, $conditions = array(), $orderby = '', $limit = '', $offset = '')
     {
         $data = $this->_db->get($logical_table_name, $conditions, $orderby, $limit, $offset);
-
+        return $data;
         if ($data->count()) {
             return $data->results();
         } else {
@@ -262,17 +262,17 @@ class listings
 
 
     public function get_statuslist_by_group($groupId, $fromStatusId = null)
-{
-    if (empty($groupId)) {
-        return [];
-    }
+    {
+        if (empty($groupId)) {
+            return [];
+        }
 
-    // Default null to 0
-    if ($fromStatusId === null) {
-        $fromStatusId = 0;
-    }
+        // Default null to 0
+        if ($fromStatusId === null) {
+            $fromStatusId = 0;
+        }
 
-    $query = "
+        $query = "
         SELECT 
             ts.status_id,
             ts.status_name
@@ -285,38 +285,38 @@ class listings
         ORDER BY ts.status_id ASC
     ";
 
-    $data = $this->_db->query($query, [$groupId, $fromStatusId]);
+        $data = $this->_db->query($query, [$groupId, $fromStatusId]);
 
-    if ($data->count() > 0) {
-        $statusList = [];
-        foreach ($data->results() as $row) {
-            $statusList[$row->status_id] = $row->status_name;
+        if ($data->count() > 0) {
+            $statusList = [];
+            foreach ($data->results() as $row) {
+                $statusList[$row->status_id] = $row->status_name;
+            }
+            return $statusList;
+        } else {
+            return [];
         }
-        return $statusList;
-    } else {
-        return [];
     }
-}
 
 
     public function get_currentstatus($StatusId = null)
-{
-    
+    {
 
-    $query = "
+
+        $query = "
         SELECT status_name from ticket_statuses WHERE status_id = ?
           AND is_active = 1 
             
     ";
 
-    $data = $this->_db->query($query, [$StatusId]);
+        $data = $this->_db->query($query, [$StatusId]);
 
-    if ($data->count() > 0) {
-       return $data->first()->status_name;
-    } else {
-        return null;
+        if ($data->count() > 0) {
+            return $data->first()->status_name;
+        } else {
+            return null;
+        }
     }
-}
 
 
 }
