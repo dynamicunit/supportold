@@ -1,0 +1,166 @@
+/* Enhanced Side Menu */
+.dashboard-sidebar {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.dashboard-sidebar .menu-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #343a40;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.dashboard-sidebar ul {
+  padding: 0;
+  list-style: none;
+}
+
+.dashboard-sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.dashboard-sidebar ul li a {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #6c757d;
+  transition: background-color 0.3s, color 0.3s;
+  text-decoration: none;
+}
+
+.dashboard-sidebar ul li a i {
+  font-size: 1.2rem;
+  margin-right: 10px;
+  color: #6c757d;
+}
+
+.dashboard-sidebar ul li a:hover {
+  background-color: #f8f9fa;
+  color: #007bff;
+}
+
+.dashboard-sidebar ul li a:hover i {
+  color: #007bff;
+}
+
+/* Notifications Section */
+.notifications-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.notifications-card h5 {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #343a40;
+}
+
+.notifications-card ul {
+  padding: 0;
+  list-style: none;
+}
+
+.notifications-card ul li {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.notifications-card ul li i {
+  font-size: 1.2rem;
+  margin-right: 10px;
+  color: #007bff;
+}
+
+.notifications-card ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Saved Names Section */
+.saved-names-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.saved-names-card h5 {
+  font-weight: bold;
+  font-size: 18px;
+  color: #343a40;
+}
+
+.saved-names-card p {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.saved-names-card .view-all {
+  font-size: 0.9rem;
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.saved-names-card .view-all:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Profile Card */
+.profile-card {
+  text-align: center;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card .profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #6c757d; /* Matches Bootstrap muted text color */
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.profile-card .profile-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #343a40;
+  margin-top: 15px;
+}
+
+.profile-card .profile-details {
+  color: #6c757d; /* Muted color */
+  margin-bottom: 10px;
+}
+
+.profile-card .edit-btn {
+  background-color: #6c757d; /* Muted color */
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.profile-card .edit-btn:hover {
+  background-color: #5a6268; /* Slightly darker shade */
+}/*# sourceMappingURL=user.css.map */

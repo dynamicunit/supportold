@@ -1,0 +1,80 @@
+.dropzone-image-field {
+    display: none;
+}
+
+.dropzone-image-error {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgb(239 68 68 / 1);
+    text-align: center;
+}
+
+#dropZone {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#dropZone:hover {
+    border-color: #999;
+}
+
+#dropzonePreviewContainer {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: none;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropzone-image-preview {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.dropzone-image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.dropzone-remove-button {
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    background-color: #f87171;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    line-height: normal;
+    display: grid;
+    place-content: center;
+    font-size: 24px;
+    visibility: hidden;
+}
+
+.dropzone-image-preview img:hover~.dropzone-remove-button,
+.dropzone-remove-button:hover {
+    visibility: visible;
+}
+
+.drag-over {
+    border: 2px dashed #000;
+}
