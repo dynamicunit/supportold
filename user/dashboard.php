@@ -7,4 +7,5 @@ $view = new vwcommon($route[0]);
 
 
 
+
 $canonical = $page->get_page_slug();

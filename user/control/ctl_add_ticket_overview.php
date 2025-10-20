@@ -89,7 +89,7 @@ if (input::exists('post')) {
                 error_log($e->getMessage() . ': control contact form', 3, __DIR__ . '/errors.log');
 
                 $message = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-               Error occurred while processing your request. Please try again later.
+               Error occurred while processing your request. Please try again later. ' . $e->getMessage() . ' 
                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
            </div>';
                 send_response(false, $message);

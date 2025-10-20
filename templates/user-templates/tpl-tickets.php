@@ -7,7 +7,7 @@
 
     <!-- CONTENT -->
     <main class="content">
-        
+
         <section>
             <div class="container-fluid mb-2 ">
                 <div class="row">
@@ -41,7 +41,8 @@
                 <div class="col">
                     <?= $view->page_messages($validation_errors); ?>
                     <div class="table-responsive mt-1">
-                        <table class="table table-bordered table-hover align-middle shadow-sm bg-white p-3 rounded shadow-sm">
+                        <table
+                            class="table table-bordered table-hover align-middle shadow-sm bg-white p-3 rounded shadow-sm">
                             <thead class="table-light">
                                 <tr>
                                     <th>Sr.</th>
@@ -111,7 +112,7 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                <?php endforeach;
+                                    <?php endforeach;
                                 } else {
                                     echo '<tr><td colspan="4" class="text-center text-muted">No records found</td></tr>';
                                 } ?>
@@ -153,7 +154,7 @@
     <?php include_once(__DIR__ . '/../inc_footer.php') ?>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var deletePostId;
             var csrfToken;
 
@@ -180,23 +181,23 @@
 
             fetchCsrfToken();
 
-            document.querySelectorAll('.delete-ticket').forEach(function(button) {
-                button.addEventListener('click', function() {
+            document.querySelectorAll('.delete-ticket').forEach(function (button) {
+                button.addEventListener('click', function () {
                     deletePostId = this.getAttribute('data-entity-id');
                     var deleteEntityModal = new bootstrap.Modal(document.getElementById('deleteEntityModal'));
                     deleteEntityModal.show();
                 });
             });
 
-            document.getElementById('confirmDeleteEntity').addEventListener('click', function() {
+            document.getElementById('confirmDeleteEntity').addEventListener('click', function () {
                 var formData = new FormData();
                 formData.append('id', deletePostId);
                 formData.append('token', csrfToken);
 
                 fetch('<?= $baseurl ?>/user/control/delete-ticket.php', {
-                        method: 'POST',
-                        body: formData
-                    })
+                    method: 'POST',
+                    body: formData
+                })
                     .then(response => {
                         fetchCsrfToken();
                         if (!response.ok) {

@@ -55,66 +55,80 @@
 </head>
 
 <body>
-    <main class="page-wrapper">
-        <?php include_once(__DIR__ . '/../inc_header.php') ?>
+    <?php include_once(__DIR__ . '/../inc_sidebar.php') ?>
 
-        <section id="data" class="container my-5">
-            <div class="row">
 
-                <h1 class="text-center">Account Details</h1>
 
-                <?= $view->page_messages() ?>
-                <?= $view->page_messages($validation_errors) ?>
+    <!-- CONTENT -->
+    <main class="content">
+        <!-- Header Row -->
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+            <h1 class="mb-0">Dashboard</h1>
 
-                <div class="col-md-6 offset-md-3 border rounded p-4 bg-white mt-3">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="<?= $baseurl ?>">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+                </ol>
+            </nav>
+        </div>
 
-                    <form action="<?= $canonical ?>" id="user-form" method="post" enctype="multipart/form-data"
-                        novalidate>
-                        <div id="userimg" class="form-group">
-                            <label for="user-img" class="form-label fs-base">Profile Image</label>
-                            <input type="file" id="user-img" name="user-img" class="form-control image-field"
-                                accept="image/*">
-                            <div id="image-error" class="error-message"></div>
-                            <div id="image-preview" class="image-preview">
-                                <img id="preview-img" alt="Image Preview" class="preview-img"
-                                    src="<?= $data['profile_image'] ?? '' ?>">
-                                <span id="remove-image" class="remove-image text-danger">× Remove
-                                    Image</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="name" class="form-label">Full Name</label>
-                            <input type="text" name="name" id="name" class="form-control"
-                                value="<?= $data['name'] ?? '' ?>" required minlength="5" maxlength="20">
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="text" name="email" id="email" class="form-control" disabled
-                                value="<?= $data['email'] ?? '' ?>">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" class="form-label">Phone</label>
-                            <input type="text" name="phone" id="phone" class="form-control"
-                                value="<?= $data['phone'] ?? '' ?>">
-                        </div>
-                        <div class="form-group">
-                            <label for="short_description" class="form-label">Bio / About Me</label>
-                            <textarea name="short_description" id="short_description" rows="5"
-                                class="form-control"><?= $data['bio'] ?? '' ?></textarea>
-                        </div>
-                        <div>
-                            <?php if (isset($data['profile_image']) && !empty($data['profile_image'])): ?>
-                                <input type="hidden" name="old-image" value="<?= $data['profile_image'] ?>">
-                            <?php endif; ?>
-                            <input type="hidden" name="image-exists" id="image-exists" value="">
-                            <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
-                            <button type="submit" class="btn btn-primary">Update</button>
-                        </div>
-                    </form>
+        <div class="row">
 
-                </div>
+            <h1 class="text-center">Account Details</h1>
+
+            <?= $view->page_messages() ?>
+            <?= $view->page_messages($validation_errors) ?>
+
+            <div class="col-md-6 offset-md-3 border rounded p-4 bg-white mt-3">
+
+                <form action="<?= $canonical ?>" id="user-form" method="post" enctype="multipart/form-data" novalidate>
+                    <div id="userimg" class="form-group">
+                        <label for="user-img" class="form-label fs-base">Profile Image</label>
+                        <input type="file" id="user-img" name="user-img" class="form-control image-field"
+                            accept="image/*">
+                        <div id="image-error" class="error-message"></div>
+                        <div id="image-preview" class="image-preview">
+                            <img id="preview-img" alt="Image Preview" class="preview-img"
+                                src="<?= $data['profile_image'] ?? '' ?>">
+                            <span id="remove-image" class="remove-image text-danger">× Remove
+                                Image</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" name="name" id="name" class="form-control" value="<?= $data['name'] ?? '' ?>"
+                            required minlength="5" maxlength="20">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" name="email" id="email" class="form-control" disabled
+                            value="<?= $data['email'] ?? '' ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" name="phone" id="phone" class="form-control"
+                            value="<?= $data['phone'] ?? '' ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="short_description" class="form-label">Bio / About Me</label>
+                        <textarea name="short_description" id="short_description" rows="5"
+                            class="form-control"><?= $data['bio'] ?? '' ?></textarea>
+                    </div>
+                    <div>
+                        <?php if (isset($data['profile_image']) && !empty($data['profile_image'])): ?>
+                            <input type="hidden" name="old-image" value="<?= $data['profile_image'] ?>">
+                        <?php endif; ?>
+                        <input type="hidden" name="image-exists" id="image-exists" value="">
+                        <input type="hidden" name="token" value="<?php echo token::generate(); ?>">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+
             </div>
-        </section>
+        </div>
+
     </main>
     <?php include_once(__DIR__ . '/../inc_footer.php') ?>
     <script src="<?= $baseurl ?>/templates/js/validate.js"></script>

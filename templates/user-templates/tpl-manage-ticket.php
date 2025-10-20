@@ -122,9 +122,8 @@
                                 <label for="ticketTitle" class="form-label mb-0">Title</label>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="ticketTitle" name="ticketTitle"
-                                    required minlength="5" maxlength="200"
-                                    value="<?= $ticket_data->issue_title ?? '' ?>" />
+                                <input type="text" class="form-control" id="ticketTitle" name="ticketTitle" required
+                                    minlength="5" maxlength="200" value="<?= $ticket_data->issue_title ?? '' ?>" />
                             </div>
                         </div>
 
@@ -183,11 +182,9 @@
                             </div>
                             <div class="col-md-4">
                                 <select name="status" id="status" class="form-select" required>
-                                    <option selected disabled>--select status--</option>
-                                    <option value="0" selected disabled><?= htmlspecialchars($current_status) ?></option>
+                                    <option value="" disabled <?= !isset($ticket_data->ticket_status) ? 'selected' : '' ?>>--select status--</option>
                                     <?php foreach ($statuses as $id => $name): ?>
-                                        <option value="<?= htmlspecialchars($id) ?>"
-                                            <?= (isset($ticket_data->ticket_status) && $ticket_data->ticket_status == $id) ? 'selected' : '' ?>>
+                                        <option value="<?= htmlspecialchars($id) ?>" <?= (isset($ticket_data->ticket_status) && $ticket_data->ticket_status == $id) ? 'selected' : '' ?>>
                                             <?= htmlspecialchars($name) ?>
                                         </option>
                                     <?php endforeach ?>
@@ -202,7 +199,8 @@
                             </div>
                             <div class="col-md-10">
                                 <textarea class="form-control" id="issueDescription" name="issueDescription" rows="4"
-                                    required minlength="5" maxlength="1000"><?= $ticket_data->issue_description ?? '' ?></textarea>
+                                    required minlength="5"
+                                    maxlength="1000"><?= $ticket_data->issue_description ?? '' ?></textarea>
                             </div>
                         </div>
 
@@ -240,7 +238,7 @@
                                     <?php
                                     if (!empty($pictures)) {
                                         foreach ($pictures as $index => $picture) {
-                                    ?>
+                                            ?>
                                             <tr>
                                                 <td>
                                                     <button type="button" class="btn btn-link text-danger btn-minus"
@@ -257,7 +255,7 @@
                                                         style="max-width: 100px; display: block">
                                                 </td>
                                             </tr>
-                                        <?php
+                                            <?php
                                         }
                                     } else {
                                         ?>
@@ -275,7 +273,7 @@
                                                     accept="image/*" />
                                             </td>
                                         </tr>
-                                    <?php
+                                        <?php
                                     }
                                     ?>
                                 </tbody>
@@ -340,49 +338,64 @@
                 </div>
                 <!-- Closing Information -->
                 <div class="tab-pane fade" id="closing" role="tabpanel" aria-labelledby="closing-tab">
-    <div class="container-fluid px-0">
+                    <div class="container-fluid px-0">
 
-        <div class="row border-bottom py-2 align-items-center">
-            <div class="col-md-2 fw-semibold text-secondary text-md-end text-xl-end">Create Date</div>
-            <div class="col-md-10 text-dark text-muted fst-italic">Not yet created</div>
-        </div>
+                        <div class="row border-bottom py-2 align-items-center">
+                            <div class="col-md-2 fw-semibold text-secondary text-md-end text-xl-end">Create Date</div>
+                            <div class="col-md-10 text-dark text-muted fst-italic">
+                                <?= $ticket_data ? date('d-M-Y', strtotime($ticket_data->created_at)) : 'Not yet created' ?>
+                            </div>
+                        </div>
 
-        <div class="row border-bottom py-2 align-items-center">
-            <div class="col-md-2 fw-semibold text-secondary text-md-end text-xl-end">SLA Category / Priority</div>
-            <div class="col-md-10 text-dark text-muted fst-italic">Not defined</div>
-        </div>
+                        <div class="row border-bottom py-2 align-items-center">
+                            <div class="col-md-2 fw-semibold text-secondary text-md-end text-xl-end">SLA Category /
+                                Priority</div>
+                            <div class="col-md-10 text-dark text-muted fst-italic"><?= $priority ?? 'Not defined' ?>
+                            </div>
+                        </div>
 
-        <div class="row border-bottom py-2 align-items-center">
-            <div class="col-md-2 fw-semibold text-secondary text-md-end text-xl-end">SLA Target (in hours)</div>
-            <div class="col-md-10 text-dark text-muted fst-italic">Not available</div>
-        </div>
+                        <div class="row border-bottom py-2 align-items-center">
+                            <div class="col-md-2 fw-semibold text-secondary text-md-end text-xl-end">SLA Target (in
+                                hours)</div>
+                            <div class="col-md-10 text-dark text-muted fst-italic">
+                                <?= $ticket_data && $ticket_data->sla_target ? $ticket_data->sla_target : 'Not available' ?>
+                            </div>
+                        </div>
 
-        <div class="row border-bottom py-2 align-items-center">
-            <div class="col-md-2 fw-semibold text-secondary text-md-end text-xl-end">Assigned To</div>
-            <div class="col-md-10 text-dark text-muted fst-italic">Not yet assigned</div>
-        </div>
+                        <div class="row border-bottom py-2 align-items-center">
+                            <div class="col-md-2 fw-semibold text-secondary text-md-end text-xl-end">Assigned To</div>
+                            <div class="col-md-10 text-dark text-muted fst-italic">
+                                <?= $assigned_to ? $assigned_to : 'Not yet assigned' ?>
+                            </div>
+                        </div>
 
-        <div class="row border-bottom py-2 align-items-center">
-            <div class="col-md-2 fw-semibold text-secondary text-md-end text-xl-end">Closing Date</div>
-            <div class="col-md-10 text-dark text-muted fst-italic">Not yet closed</div>
-        </div>
+                        <div class="row border-bottom py-2 align-items-center">
+                            <div class="col-md-2 fw-semibold text-secondary text-md-end text-xl-end">Closing Date</div>
+                            <div class="col-md-10 text-dark text-muted fst-italic">
+                                <?= $ticket_data && $ticket_data->closed_at ? $ticket_data->closed_at : 'Not yet closed' ?>
+                            </div>
+                        </div>
 
-        <div class="row border-bottom py-2 align-items-center">
-            <div class="col-md-2 fw-semibold text-secondary text-md-end text-xl-end">Time Taken to Close</div>
-            <div class="col-md-10 text-dark text-muted fst-italic">Not available</div>
-        </div>
+                        <div class="row border-bottom py-2 align-items-center">
+                            <div class="col-md-2 fw-semibold text-secondary text-md-end text-xl-end">Time Taken to Close
+                            </div>
+                            <div class="col-md-10 text-dark text-muted fst-italic">
+                                <?= $ticket_data && $ticket_data->time_taken_to_close ? $ticket_data->time_taken_to_close : 'Not available' ?>
+                            </div>
+                        </div>
 
-        <div class="row border-bottom py-2 align-items-start">
-            <div class="col-md-2 fw-semibold text-secondary text-md-end text-xl-end">Closing Comments</div>
-            <div class="col-md-10">
-                <div class="border rounded p-3 bg-light text-muted fst-italic">
-                    No closing comments available.
+                        <div class="row border-bottom py-2 align-items-start">
+                            <div class="col-md-2 fw-semibold text-secondary text-md-end text-xl-end">Closing Comments
+                            </div>
+                            <div class="col-md-10">
+                                <div class="border rounded p-3 bg-light text-muted fst-italic">
+                                    <?= $ticket_data && $ticket_data->closing_comments ? $ticket_data->closing_comments : 'No closing comments available.' ?>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
-        </div>
-
-    </div>
-</div>
 
 
 
@@ -679,7 +692,7 @@
             const table = document.getElementById(tableId).querySelector('tbody');
             const newRow = document.createElement('tr');
 
-            columns.forEach(function(cellHtml) {
+            columns.forEach(function (cellHtml) {
                 const td = document.createElement('td');
                 td.innerHTML = cellHtml;
                 newRow.appendChild(td);
@@ -689,7 +702,7 @@
         }
 
         // Add Attachment Row
-        document.getElementById('addAttachmentRow').addEventListener('click', function() {
+        document.getElementById('addAttachmentRow').addEventListener('click', function () {
             addRow('attachmentsTable', [
                 '<button type="button" class="btn btn-link text-danger btn-minus" onclick="removeRow(this)">–</button>',
                 '<input type="text" class="form-control" name="doc_title[]" placeholder="Document Title"/>',

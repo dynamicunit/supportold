@@ -90,7 +90,8 @@ if ($route[0] == 'user') {
         'change-password',
         'edit-user',
         'tickets',
-        'manage-ticket'
+        'manage-ticket',
+        'reports'
     );
 
     if (in_array($route[1], $valid_routes)) {

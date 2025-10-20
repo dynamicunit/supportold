@@ -1,38 +1,38 @@
 <!-- Top Header -->
 <section class="bg-white">
-  <div class="container">
-    <nav class="navbar bg-white border-bottom px-3">
-      <div class="container-fluid d-flex align-items-center justify-content-between">
-        
-        <!-- Left: Logo/Support -->
-        <a class="navbar-brand d-flex align-items-center" href="#">
-          <img src="https://via.placeholder.com/28x28.png" alt="Logo" class="me-2">
-          <span class="fw-bold">SUPPORT</span>
-        </a>
+	<div class="container">
+		<nav class="navbar bg-white border-bottom px-3">
+			<div class="container-fluid d-flex align-items-center justify-content-between">
 
-        <!-- Right: Icons + Profile -->
-        <div class="d-flex align-items-center">
-          <!-- Icons -->
-          <div class="d-flex align-items-center me-4">
-            <i data-feather="bell" class="icon-md me-3"></i>
-            <i data-feather="grid" class="icon-md me-3"></i>
-            <i data-feather="settings" class="icon-md me-3"></i>
-            <i data-feather="moon" class="icon-md"></i>
-          </div>
+				<!-- Left: Logo/Support -->
+				<a class="navbar-brand d-flex align-items-center" href="#">
+					<img src="https://via.placeholder.com/28x28.png" alt="Logo" class="me-2">
+					<span class="fw-bold">SUPPORT</span>
+				</a>
 
-          <!-- Profile -->
-          <div class="d-flex align-items-center">
-            <img src="https://via.placeholder.com/32" alt="Profile" class="profile-img me-2">
-            <div>
-              <span class="fw-semibold">Dominic Keller</span><br>
-              <small class="text-muted">Founder</small>
-            </div>
-          </div>
-        </div>
+				<!-- Right: Icons + Profile -->
+				<div class="d-flex align-items-center">
+					<!-- Icons -->
+					<div class="d-flex align-items-center me-4">
+						<i data-feather="bell" class="icon-md me-3"></i>
+						<i data-feather="grid" class="icon-md me-3"></i>
+						<i data-feather="settings" class="icon-md me-3"></i>
+						<i data-feather="moon" class="icon-md"></i>
+					</div>
 
-      </div>
-    </nav>
-  </div>
+					<!-- Profile -->
+					<div class="d-flex align-items-center">
+						<img src="https://via.placeholder.com/32" alt="Profile" class="profile-img me-2">
+						<div>
+							<span class="fw-semibold">Dominic Keller</span><br>
+							<small class="text-muted">Founder</small>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</nav>
+	</div>
 </section>
 
 <!-- Bottom Navigation -->
