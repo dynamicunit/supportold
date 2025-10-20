@@ -16,8 +16,7 @@
     <main class="content">
         <!-- Header Row -->
         <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
-            <h1 class="mb-0">Dashboard</h1>
-
+            <h1 class="mb-0">Change Password</h1>
             <!-- Breadcrumb -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0">
@@ -28,12 +27,11 @@
         </div>
 
         <div class="row">
-            <h1 class="text-center">Change Password</h1>
 
             <?= $view->page_messages() ?>
             <?= $view->page_messages($validation_errors) ?>
 
-            <div class="col-md-6 offset-md-3 border rounded p-4 bg-white mt-3">
+            <div class="col-md-6 border rounded p-4 bg-white mt-3">
 
                 <form action="<?= $canonical ?>" id="change-password" method="post" enctype="multipart/form-data"
                     novalidate>

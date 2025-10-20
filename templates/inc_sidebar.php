@@ -29,11 +29,11 @@
 
         <ul class="dropdown-menu dropdown-menu-end">
           <li><a class="dropdown-item" href="<?= $baseurl ?>/user/edit-user">Profile</a></li>
-          <li><a class="dropdown-item" href="<?= $baseurl ?>/user/change-password">Settings</a></li>
+          <li><a class="dropdown-item" href="<?= $baseurl ?>/user/change-password">Change Password</a></li>
           <li>
             <hr class="dropdown-divider" />
           </li>
-          <li><a class="dropdown-item" href="#">Logout</a></li>
+          <li><a class="dropdown-item" href="<?= $baseurl ?>/sign-out">Logout</a></li>
         </ul>
       </div>
 
@@ -56,28 +56,28 @@
     </li>
 
     <li>
-      <a class="nav-link <?= $page->get_page_slug() === '/user/tickets' ? 'active' : '' ?>"
-        href="<?= $baseurl ?>/user/tickets">
+      <a class="nav-link <?= $page->get_page_slug() === '/user/tickets' || $page->get_page_slug() ===
+        '/user/manage-ticket' ? 'active' : '' ?>" href="<?= $baseurl ?>/user/tickets">
         <i data-feather="inbox" class="icon-md me-2"></i> Tickets
       </a>
     </li>
 
     <li>
-      <a class="nav-link" href="<?= $baseurl ?>/user/reports">
-        <i data-feather="bar-chart-2 <?= $page->get_page_slug() === '/user/reports' ? 'active' : '' ?>"
-          class="icon-md me-2"></i> Reports
+      <a class="nav-link <?= $page->get_page_slug() === '/user/reports' ? 'active' : '' ?>"
+        href="<?= $baseurl ?>/user/reports">
+        <i data-feather="bar-chart-2" class="icon-md me-2"></i> Reports
       </a>
     </li>
 
     <li>
       <a class="nav-link <?= $page->get_page_slug() === '/user/change-password' ? 'active' : '' ?>"
         href="<?= $baseurl ?>/user/change-password">
-        <i data-feather="settings" class="icon-md me-2"></i> Settings
+        <i data-feather="settings" class="icon-md me-2"></i> Change Password
       </a>
     </li>
 
     <li class="mt-3 border-top pt-3">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="<?= $baseurl ?>/sign-out">
         <i data-feather="log-out" class="icon-md me-2"></i> Logout
       </a>
     </li>
