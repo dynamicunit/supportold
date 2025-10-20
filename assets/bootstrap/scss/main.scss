@@ -957,6 +957,7 @@ body {
 
 /* ---------- CONTENT ---------- */
 .content {
+    overflow-y: auto;
     margin-left: var(--sidebar-w);
     padding: calc(var(--navbar-h) + 24px) 24px 24px 24px;
     width: calc(100% - var(--sidebar-w));

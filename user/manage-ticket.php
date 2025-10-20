@@ -17,6 +17,10 @@ $limit = 1;
 
 $ticket_data = $user->fetch($table, $condition, '', $limit);
 
+$priority = $ticket_data && $ticket_data->priority ? $web->fetch('lookups', ['id' => ['=', $ticket_data->priority]])->description : '';
+$assigned_to = $ticket_data && $ticket_data->assigned_user_id ? $web->fetch('users', ['id' => ['=', $ticket_data->assigned_user_id]])->full_name : '';
+
+
 if ($ticket_id && !$ticket_data) {
     $view->get_page404();
 }
@@ -110,7 +114,7 @@ $cbo_priority = $web->get_combo(
         'values' => 'single'
     )
 );
-/*
+
 $where = [
     '1' => ['=', 1]
 ];
@@ -124,6 +128,6 @@ $cbo_dep = $web->get_combo(
     'name',
     'dep_id'
 );
-*/
+
 
 $canonical = $page->get_page_slug();
