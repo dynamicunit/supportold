@@ -18,8 +18,8 @@ $GLOBALS['config'] = array(
         'token_name' => 'token'
     ),
     'website' => array(
-        //  'website_url' => 'http://localhost:8080/supporttickets',
-        'website_url' => 'http://localhost/dynamicunit/supportold',
+          'website_url' => 'http://localhost:8080/supporttickets',
+        //'website_url' => 'http://localhost/dynamicunit/supportold',
         'website_code' => 1
     )
 );

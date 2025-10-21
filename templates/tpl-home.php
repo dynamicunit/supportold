@@ -7,7 +7,19 @@
 </head>
 
 <body>
-  <?php include_once('inc_header.php') ?>
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 border-bottom"> <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"> <svg class="bi me-2" width="40" height="32" aria-hidden="true">
+          <use xlink:href="#bootstrap"></use>
+        </svg> <span class="fs-4">DU Suppport</span> </a>
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+      </ul>
+    </header>
+  </div>
 
   <!-- Hero Section -->
   <section class="bg-primary text-white text-center py-5">
@@ -34,7 +46,7 @@
           </div>
         </div>
       </div>
-<!--
+      <!--
       <div class="col-md-3">
         <div class="card text-center shadow-sm p-3 h-100">
           <i class="ft-book" class="text-primary display-4"></i>
@@ -75,7 +87,18 @@
 
 
 
-  <?php include_once('inc_footer.php') ?>
+  <div class="container">
+    <footer class="py-3 my-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+      </ul>
+      <p class="text-center text-body-secondary">© 2025 Dynamic Unit FZE LLC.</p>
+    </footer>
+  </div>
 
 </body>
 
