@@ -7,8 +7,8 @@
 </head>
 
 <body>
-  <?php include_once('inc_header.php') ?>
 
+  <?php include_once('inc_header.php') ?>
   <!-- Hero Section -->
   <section class="bg-primary text-white text-center py-5">
     <div class="container py-4">
@@ -34,7 +34,7 @@
           </div>
         </div>
       </div>
-<!--
+      <!--
       <div class="col-md-3">
         <div class="card text-center shadow-sm p-3 h-100">
           <i class="ft-book" class="text-primary display-4"></i>
@@ -71,9 +71,6 @@
 -->
     </div>
   </section>
-
-
-
 
   <?php include_once('inc_footer.php') ?>
 
